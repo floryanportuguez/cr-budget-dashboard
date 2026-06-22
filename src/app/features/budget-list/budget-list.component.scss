@@ -1,0 +1,14 @@
+@use '../../../styles/variables' as *;
+
+:host { display: block; }
+
+.page {
+  padding: $page-padding-y $page-padding-x;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}

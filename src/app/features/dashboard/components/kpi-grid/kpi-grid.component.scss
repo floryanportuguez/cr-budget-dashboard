@@ -1,0 +1,16 @@
+@use '../../../../../styles/variables' as *;
+@use '../../../../../styles/mixins' as *;
+
+:host { display: block; }
+
+.kpi-grid {
+  @include grid(4, 10px);
+
+  @include respond-below(md) {
+    @include grid(2, 10px);
+  }
+
+  @include respond-below(sm) {
+    @include grid(1, 10px);
+  }
+}

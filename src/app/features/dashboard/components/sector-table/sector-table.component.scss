@@ -1,0 +1,13 @@
+@use '../../../../../styles/variables' as *;
+
+:host { display: block; }
+
+.sector-name {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}

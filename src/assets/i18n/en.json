@@ -1,0 +1,70 @@
+{
+  "nav": {
+    "title": "Budget Tracker",
+    "dashboard": "Dashboard",
+    "list": "List",
+    "charts": "Charts"
+  },
+  "filters": {
+    "label": "Filters",
+    "allYears": "All years",
+    "allSectors": "All sectors",
+    "currency": {
+      "crc": "₡ CRC",
+      "usd": "$ USD"
+    },
+    "reset": "Clear filters"
+  },
+  "kpi": {
+    "totalBudgeted": "Total budget",
+    "totalExecuted": "Executed",
+    "activeSectors": "Active sectors",
+    "unexecuted": "Unexecuted",
+    "ofTotal": "of total",
+    "belowTarget": "Below target"
+  },
+  "charts": {
+    "yearlySpend": "Spending by year",
+    "sectorDistribution": "Sector distribution",
+    "budgetVsExecuted": "Budgeted vs executed by year",
+    "executionTrend": "Execution trend (%)",
+    "budgetBySector": "Budget distribution by sector",
+    "executionRateBySector": "Execution rate by sector",
+    "budgeted": "Budgeted",
+    "executed": "Executed",
+    "executionRate": "Execution rate"
+  },
+  "table": {
+    "title": "Execution by sector",
+    "detailTitle": "Budget detail",
+    "records": "records",
+    "sector": "Sector",
+    "year": "Year",
+    "budgeted": "Budget",
+    "executed": "Executed",
+    "executionPct": "Execution %",
+    "status": "Status",
+    "noData": "No data for the selected filters.",
+    "status_optimal": "Optimal",
+    "status_at-risk": "At risk",
+    "status_low": "Low"
+  },
+  "loading": {
+    "budget": "Loading budget data...",
+    "records": "Loading records...",
+    "charts": "Loading charts..."
+  },
+  "lang": {
+    "switch": "Español"
+  },
+  "sectors": {
+    "education": "Education",
+    "health": "Health",
+    "infrastructure": "Infrastructure",
+    "security": "Security",
+    "social": "Social development",
+    "environment": "Environment",
+    "science": "Science & technology",
+    "culture": "Culture & sports"
+  }
+}

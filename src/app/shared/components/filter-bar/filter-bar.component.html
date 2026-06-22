@@ -1,0 +1,34 @@
+<div class="filter-bar" *ngIf="data$ | async as data">
+  <span class="filter-bar__label">{{ 'filters.label' | translate }}</span>
+
+  <select class="filter-bar__select"
+    [ngModel]="selectedYear"
+    (ngModelChange)="onYearChange($event)">
+    <option [value]="null">{{ 'filters.allYears' | translate }}</option>
+    @for (year of data.years; track year) {
+      <option [value]="year">{{ year }}</option>
+    }
+  </select>
+
+  <select class="filter-bar__select"
+    [ngModel]="selectedSector"
+    (ngModelChange)="onSectorChange($event)">
+    <option [value]="null">{{ 'filters.allSectors' | translate }}</option>
+    @for (sector of data.sectors; track sector.id) {
+      <option [value]="sector.id">
+        {{ 'sectors.' + sector.id | translate }}
+      </option>
+    }
+  </select>
+
+  <select class="filter-bar__select"
+    [ngModel]="selectedCurrency"
+    (ngModelChange)="onCurrencyChange($event)">
+    <option value="CRC">{{ 'filters.currency.crc' | translate }}</option>
+    <option value="USD">{{ 'filters.currency.usd' | translate }}</option>
+  </select>
+
+  <button class="filter-bar__reset btn-ghost" (click)="onReset()">
+    {{ 'filters.reset' | translate }}
+  </button>
+</div>

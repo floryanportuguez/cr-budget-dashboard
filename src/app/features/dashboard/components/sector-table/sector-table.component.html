@@ -1,0 +1,41 @@
+<div class="card">
+  <h3 class="chart-card__title">{{ 'table.title' | translate }}</h3>
+
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>{{ 'table.sector' | translate }}</th>
+          <th>{{ 'table.budgeted' | translate }}</th>
+          <th>{{ 'table.executed' | translate }}</th>
+          <th class="text-right">{{ 'table.executionPct' | translate }}</th>
+          <th>{{ 'table.status' | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (row of sectors; track row.sector.id) {
+          <tr>
+            <td>
+              <span class="sector-name">
+                <span class="sector-dot" [style.background]="row.sector.color"></span>
+                {{ 'sectors.' + row.sector.id | translate }}
+              </span>
+            </td>
+            <td>{{ row.budgeted | budgetCurrency: currency }}</td>
+            <td>{{ row.executed | budgetCurrency: currency }}</td>
+            <td class="text-right">{{ row.executionRate / 100 | percent: '1.1-1' }}</td>
+            <td>
+              <span [class]="'pill-' + row.status">
+                {{ 'table.status_' + row.status | translate }}
+              </span>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  @if (sectors.length === 0) {
+    <p class="empty-state">{{ 'table.noData' | translate }}</p>
+  }
+</div>

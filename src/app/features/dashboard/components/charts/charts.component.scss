@@ -1,0 +1,12 @@
+@use '../../../../../styles/variables' as *;
+@use '../../../../../styles/mixins' as *;
+
+:host { display: block; }
+
+.charts-row {
+  @include grid(2, $space-4);
+
+  @include respond-below(md) {
+    @include grid(1, $space-4);
+  }
+}

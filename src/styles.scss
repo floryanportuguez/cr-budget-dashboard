@@ -1,0 +1,41 @@
+// ─── Orden de importación ────────────────────────────────────────────────────
+// 1. Variables  (sin dependencias)
+// 2. Mixins     (depende de variables)
+// 3. Reset      (base del DOM)
+// 4. Components (patrones de UI reutilizables)
+// 5. Utilities  (clases de una sola responsabilidad, siempre al final)
+
+@use 'styles/variables' as *;
+@use 'styles/mixins'    as *;
+@use 'styles/reset';
+@use 'styles/components';
+@use 'styles/utilities';
+
+// ─── Google Fonts ────────────────────────────────────────────────────────────
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+// ─── App shell ───────────────────────────────────────────────────────────────
+html, body {
+  height: 100%;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  background: $gray-50;
+}
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-base;
+  color: $gray-800;
+  background-color: #F5F4EF;  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

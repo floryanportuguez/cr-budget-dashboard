@@ -1,0 +1,25 @@
+<div class="kpi-grid">
+  <app-kpi-card
+    class="kpi-card--total"
+    [label]="'kpi.totalBudgeted' | translate"
+    [value]="kpi.totalBudgeted | budgetCurrency: currency"
+  />
+  <app-kpi-card
+    class="kpi-card--executed"
+    [label]="'kpi.totalExecuted' | translate"
+    [value]="kpi.totalExecuted | budgetCurrency: currency"
+    [subtitle]="(kpi.executionRate / 100 | percent: '1.1-1') + ' ' + ('kpi.ofTotal' | translate)"
+  />
+  <app-kpi-card
+    class="kpi-card--sectors"
+    [label]="'kpi.activeSectors' | translate"
+    [value]="kpi.activeSectors.toString()"
+  />
+  <app-kpi-card
+    class="kpi-card--unexecuted"
+    [label]="'kpi.unexecuted' | translate"
+    [value]="kpi.unexecuted | budgetCurrency: currency"
+    [trend]="kpi.executionRate < 70 ? 'down' : 'neutral'"
+    [subtitle]="kpi.executionRate < 70 ? ('kpi.belowTarget' | translate) : undefined"
+  />
+</div>

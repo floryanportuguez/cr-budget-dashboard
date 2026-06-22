@@ -1,0 +1,369 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ─── Navbar ──────────────────────────────────────────────────────────────────
+.navbar {
+  @include flex-between;
+  padding: 0 $page-padding-x;
+  height: $navbar-height;
+  background: #fff;
+  border-bottom: 1px solid #EEEDE8;
+  position: sticky;
+  top: 0;
+  z-index: $z-sticky;
+
+  &__brand {
+    @include flex-start($space-2);
+    font-size: 15px;
+    font-weight: $font-weight-bold;
+    color: $gray-800;
+    text-decoration: none;
+  }
+
+  &__icon {
+    width: 32px;
+    height: 32px;
+    background: $purple-50;
+    border-radius: $radius-md;
+    @include flex-center;
+    font-size: 18px;
+  }
+
+  &__links {
+    @include flex-start(4px);
+  }
+
+  &__link {
+    display: block;
+    padding: 6px 16px;
+    border-radius: $radius-full;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: $gray-600;
+    text-decoration: none;
+    transition: background $transition-base, color $transition-base;
+
+    &:hover {
+      background: #F5F4EF;
+      color: $gray-800;
+    }
+
+    &.active {
+      background: #EEEDFE;
+      color: #534AB7;
+    }
+  }
+
+  &__actions {
+    @include flex-start($space-2);
+  }
+
+  &__lang-select {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    padding: 5px 12px;
+    border-radius: $radius-full;
+    border: 1px solid #D3D1C7;
+    background: #fff;
+    color: $gray-800;
+    cursor: pointer;
+    outline: none;
+    transition: border-color $transition-fast;
+    appearance: auto;
+
+    &:hover { border-color: #534AB7; }
+    &:focus {
+      border-color: #534AB7;
+      box-shadow: 0 0 0 3px rgba(83, 74, 183, 0.1);
+    }
+  }
+}
+
+// ─── Filter bar ──────────────────────────────────────────────────────────────
+.filter-bar {
+  @include flex-start($space-2);
+  flex-wrap: wrap;
+  padding: 10px $page-padding-x;
+  border-bottom: 1px solid #EEEDE8;
+  background: #fff;
+
+  &__label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $gray-600;
+    margin-right: 4px;
+  }
+
+  &__select {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    padding: 4px 12px;
+    border-radius: $radius-full;
+    border: 1px solid #D3D1C7;
+    background: #fff;
+    color: $gray-800;
+    cursor: pointer;
+    outline: none;
+    transition: border-color $transition-fast;
+    appearance: auto;
+
+    &:hover { border-color: #534AB7; }
+    &:focus {
+      border-color: #534AB7;
+      box-shadow: 0 0 0 3px rgba(83, 74, 183, 0.1);
+    }
+  }
+
+  &__reset {
+    margin-left: auto;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    padding: 4px 12px;
+    border-radius: $radius-full;
+    border: none;
+    background: transparent;
+    color: #534AB7;
+    cursor: pointer;
+    transition: background $transition-base;
+
+    &:hover { background: #EEEDFE; }
+  }
+}
+
+// ─── KPI cards ───────────────────────────────────────────────────────────────
+.kpi-card {
+  border-radius: $radius-lg;
+  padding: $space-4 $space-5;
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  border: none;
+
+  &__label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    margin-bottom: 2px;
+  }
+
+  &__value {
+    font-size: 26px;
+    font-weight: $font-weight-medium;
+    line-height: 1.1;
+  }
+
+  &__sub {
+    font-size: $font-size-xs;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    margin-top: 2px;
+  }
+
+  &--total {
+    background: #EEEDFE;
+    .kpi-card__label { color: #6366C4; }
+    .kpi-card__value { color: #3C3489; }
+    .kpi-card__sub   { color: #6366C4; }
+  }
+
+  &--executed {
+    background: #E3F5EE;
+    .kpi-card__label { color: #1D9E75; }
+    .kpi-card__value { color: #085041; }
+    .kpi-card__sub   { color: #1D9E75; }
+  }
+
+  &--sectors {
+    background: #E8F2FB;
+    .kpi-card__label { color: #3B82C4; }
+    .kpi-card__value { color: #0C447C; }
+    .kpi-card__sub   { color: #3B82C4; }
+  }
+
+  &--unexecuted {
+    background: #FDF3E3;
+    .kpi-card__label { color: #D4900A; }
+    .kpi-card__value { color: #7C4A00; }
+    .kpi-card__sub   { color: #D4900A; }
+  }
+}
+
+// ─── Chart cards ─────────────────────────────────────────────────────────────
+.chart-card {
+  background: #fff;
+  border-radius: $radius-lg;
+  padding: $space-5;
+  border: 1px solid #EEEDE8;
+
+  &__title {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: $gray-800;
+    margin-bottom: $space-4;
+  }
+
+  &__body {
+    position: relative;
+    height: 200px;
+    &--tall { height: 280px; }
+    &--sm   { height: 140px; }
+  }
+
+  &--wide { grid-column: span 2; }
+}
+
+// ─── Card base ───────────────────────────────────────────────────────────────
+.card {
+  background: #fff;
+  border-radius: $radius-lg;
+  padding: $space-5;
+  border: 1px solid #EEEDE8;
+}
+
+.card-surface {
+  background: #F5F4EF;
+  border-radius: $radius-md;
+  padding: $space-4 $space-5;
+}
+
+// ─── Data table ──────────────────────────────────────────────────────────────
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: $font-size-base;
+  table-layout: fixed;
+
+  th {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    color: $gray-400;
+    text-align: left;
+    padding: 0 $space-2 $space-3 0;
+    border-bottom: 1px solid #EEEDE8;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color $transition-fast;
+
+    &:hover      { color: $gray-800; }
+    &.text-right { text-align: right; }
+  }
+
+  td {
+    padding: $space-3 $space-2 $space-3 0;
+    border-bottom: 1px solid #F1EFE8;
+    color: $gray-800;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    &.text-right { text-align: right; }
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:hover td      { background: #FAFAF7; }
+}
+
+// ─── Status pills ─────────────────────────────────────────────────────────────
+.pill-optimal {
+  display: inline-block;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  padding: 3px 10px;
+  border-radius: $radius-full;
+  background: #E3F5EE;
+  color: #0F6E56;
+}
+
+.pill-at-risk {
+  display: inline-block;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  padding: 3px 10px;
+  border-radius: $radius-full;
+  background: #FDF3E3;
+  color: #854F0B;
+}
+
+.pill-low {
+  display: inline-block;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  padding: 3px 10px;
+  border-radius: $radius-full;
+  background: #FCEBEB;
+  color: #791F1F;
+}
+
+// ─── Sector dot ──────────────────────────────────────────────────────────────
+.sector-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+// ─── Sort icon ───────────────────────────────────────────────────────────────
+.sort-icon {
+  font-size: $font-size-xs;
+  margin-left: $space-1;
+  opacity: 0.35;
+}
+
+// ─── Page header ─────────────────────────────────────────────────────────────
+.page-header {
+  @include flex-between;
+  margin-bottom: $space-5;
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-medium;
+    color: $gray-800;
+  }
+
+  &__meta {
+    font-size: $font-size-sm;
+    color: $gray-400;
+    background: #F5F4EF;
+    padding: 3px 12px;
+    border-radius: $radius-full;
+    border: 1px solid #EEEDE8;
+  }
+}
+
+// ─── Empty state ─────────────────────────────────────────────────────────────
+.empty-state {
+  text-align: center;
+  padding: $space-10 $space-6;
+  color: $gray-400;
+  font-size: $font-size-md;
+}
+
+// ─── Spinner ─────────────────────────────────────────────────────────────────
+.spinner-wrap {
+  @include flex-center;
+  flex-direction: column;
+  gap: $space-3;
+  padding: $space-8;
+  min-height: 200px;
+
+  &__icon {
+    width: 36px;
+    height: 36px;
+    border: 3px solid #CECBF6;
+    border-top-color: #534AB7;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+
+  &__msg {
+    font-size: $font-size-base;
+    color: $gray-400;
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

@@ -1,0 +1,124 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ─── Display ─────────────────────────────────────────────────────────────────
+.d-flex        { display: flex; }
+.d-grid        { display: grid; }
+.d-block       { display: block; }
+.d-none        { display: none; }
+
+.flex-center   { @include flex-center; }
+.flex-between  { @include flex-between; }
+.items-center  { align-items: center; }
+.justify-end   { justify-content: flex-end; }
+.flex-wrap     { flex-wrap: wrap; }
+.flex-1        { flex: 1; }
+
+// ─── Spacing ─────────────────────────────────────────────────────────────────
+.gap-1  { gap: $space-1; }
+.gap-2  { gap: $space-2; }
+.gap-3  { gap: $space-3; }
+.gap-4  { gap: $space-4; }
+.gap-6  { gap: $space-6; }
+
+.mt-1 { margin-top: $space-1; }
+.mt-2 { margin-top: $space-2; }
+.mt-4 { margin-top: $space-4; }
+.mb-2 { margin-bottom: $space-2; }
+.mb-4 { margin-bottom: $space-4; }
+.mb-0 { margin-bottom: 0; }
+.ml-auto { margin-left: auto; }
+
+.p-4  { padding: $space-4; }
+.px-4 { padding-left: $space-4; padding-right: $space-4; }
+.py-2 { padding-top: $space-2; padding-bottom: $space-2; }
+
+// ─── Typography ──────────────────────────────────────────────────────────────
+.text-xs      { font-size: $font-size-xs; }
+.text-sm      { font-size: $font-size-sm; }
+.text-base    { font-size: $font-size-base; }
+.text-md      { font-size: $font-size-md; }
+.text-lg      { font-size: $font-size-lg; }
+
+.text-primary   { color: $gray-800; }
+.text-secondary { color: $gray-600; }
+.text-muted     { color: $gray-400; }
+.text-brand     { color: $color-brand-primary; }
+.text-success   { color: $teal-600; }
+.text-warning   { color: $amber-800; }
+.text-danger    { color: $red-400; }
+
+.font-medium  { font-weight: $font-weight-medium; }
+.font-bold    { font-weight: $font-weight-bold; }
+
+.text-right   { text-align: right; }
+.text-center  { text-align: center; }
+.text-truncate { @include text-truncate; }
+
+// ─── Cards ───────────────────────────────────────────────────────────────────
+.card         { @include card; }
+.card-surface { @include card-surface; }
+
+// ─── Status pills ─────────────────────────────────────────────────────────────
+.pill-optimal  { @include status-pill($color-success-bg, $color-success-text); }
+.pill-at-risk  { @include status-pill($color-warning-bg, $color-warning-text); }
+.pill-low      { @include status-pill($color-danger-bg,  $color-danger-text);  }
+
+// ─── Buttons ─────────────────────────────────────────────────────────────────
+.btn          { @include btn-base; }
+.btn-primary  { @include btn-primary; }
+.btn-ghost    { @include btn-ghost; }
+
+// ─── Form ────────────────────────────────────────────────────────────────────
+.form-control { @include form-control; }
+
+// ─── Grid helpers ─────────────────────────────────────────────────────────────
+.grid-2 { @include grid(2, $space-4); }
+.grid-3 { @include grid(3, $space-4); }
+.grid-4 { @include grid(4, $space-4); }
+
+// ─── Page layout ─────────────────────────────────────────────────────────────
+.page {
+  padding: $page-padding-y $page-padding-x;
+  max-width: $content-max-width;
+  margin: 0 auto;
+}
+
+.page-header {
+  @include flex-between;
+  margin-bottom: $space-6;
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-medium;
+  }
+
+  &__meta {
+    font-size: $font-size-sm;
+    color: $gray-600;
+  }
+}
+
+// ─── Divider ─────────────────────────────────────────────────────────────────
+.divider {
+  border: none;
+  border-top: $border-width solid $border-color;
+  margin: $space-4 0;
+}
+
+// ─── Empty state ─────────────────────────────────────────────────────────────
+.empty-state {
+  text-align: center;
+  padding: $space-12 $space-6;
+  color: $gray-400;
+  font-size: $font-size-md;
+}
+
+// ─── Responsive hidden ───────────────────────────────────────────────────────
+.hide-mobile {
+  @include respond-below(md) { display: none !important; }
+}
+
+.hide-desktop {
+  @include respond-to(md) { display: none !important; }
+}

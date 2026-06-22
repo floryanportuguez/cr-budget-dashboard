@@ -1,0 +1,64 @@
+<app-filter-bar />
+
+<div class="page">
+  <div class="page-header">
+    <h2 class="page-header__title">{{ 'table.detailTitle' | translate }}</h2>
+    <span class="page-header__meta">
+      {{ (items$ | async)?.length ?? 0 }} {{ 'table.records' | translate }}
+    </span>
+  </div>
+
+  @if (items$ | async; as items) {
+    <div class="card table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th (click)="sort('year')">
+              {{ 'table.year' | translate }}
+              <span class="sort-icon">{{ sortIcon('year') }}</span>
+            </th>
+            <th (click)="sort('sectorId')">
+              {{ 'table.sector' | translate }}
+              <span class="sort-icon">{{ sortIcon('sectorId') }}</span>
+            </th>
+            <th (click)="sort('budgeted')">
+              {{ 'table.budgeted' | translate }}
+              <span class="sort-icon">{{ sortIcon('budgeted') }}</span>
+            </th>
+            <th (click)="sort('executed')">
+              {{ 'table.executed' | translate }}
+              <span class="sort-icon">{{ sortIcon('executed') }}</span>
+            </th>
+            <th (click)="sort('executionRate')" class="text-right">
+              {{ 'table.executionPct' | translate }}
+              <span class="sort-icon">{{ sortIcon('executionRate') }}</span>
+            </th>
+            <th>{{ 'table.status' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of sorted(items); track item.id) {
+            <tr>
+              <td>{{ item.year }}</td>
+              <td>{{ 'sectors.' + item.sectorId | translate }}</td>
+              <td>{{ item.budgeted | budgetCurrency: currency }}</td>
+              <td>{{ item.executed | budgetCurrency: currency }}</td>
+              <td class="text-right">{{ (item.executionRate ?? 0) / 100 | percent: '1.1-1' }}</td>
+              <td>
+                <span [class]="'pill-' + item.executionStatus">
+                  {{ 'table.status_' + item.executionStatus | translate }}
+                </span>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    @if (items.length === 0) {
+      <p class="empty-state">{{ 'table.noData' | translate }}</p>
+    }
+  } @else {
+    <app-loading-spinner [message]="'loading.records' | translate" />
+  }
+</div>

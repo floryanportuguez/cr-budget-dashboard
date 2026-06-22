@@ -1,0 +1,31 @@
+<nav class="navbar">
+  <a class="navbar__brand" routerLink="/dashboard">
+    <span class="navbar__icon">📊</span>
+    <span>{{ 'nav.title' | translate }}</span>
+  </a>
+
+  <ul class="navbar__links">
+    <li>
+      <a class="navbar__link" routerLink="/dashboard" routerLinkActive="active">
+        {{ 'nav.dashboard' | translate }}
+      </a>
+    </li>
+    <li>
+      <a class="navbar__link" routerLink="/budget-list" routerLinkActive="active">
+        {{ 'nav.list' | translate }}
+      </a>
+    </li>
+    <li>
+      <a class="navbar__link" routerLink="/charts" routerLinkActive="active">
+        {{ 'nav.charts' | translate }}
+      </a>
+    </li>
+  </ul>
+
+  <div class="navbar__actions">
+    <select class="navbar__lang-select" [ngModel]="currentLang" (ngModelChange)="onLangChange($event)">
+      <option value="es">🇨🇷 Español</option>
+      <option value="en">🇺🇸 English</option>
+    </select>
+  </div>
+</nav>

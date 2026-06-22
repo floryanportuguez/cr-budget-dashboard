@@ -1,0 +1,50 @@
+@use '../../../../styles/variables' as *;
+
+:host { display: block; }
+
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 10px 24px;
+  border-bottom: 1px solid #EEEDE8;
+  background: #fff;
+
+  &__label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #5F5E5A;
+    margin-right: 4px;
+  }
+
+  &__select {
+    font-size: 13px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 8px;
+    border: 1px solid #D3D1C7;
+    background: #fff;
+    color: #2C2C2A;
+    cursor: pointer;
+    outline: none;
+    appearance: auto;
+
+    &:hover { border-color: #534AB7; }
+    &:focus { border-color: #534AB7; }
+  }
+
+  &__reset {
+    margin-left: auto;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    border: none;
+    background: transparent;
+    color: #534AB7;
+    cursor: pointer;
+
+    &:hover { background: #EEEDFE; }
+  }
+}

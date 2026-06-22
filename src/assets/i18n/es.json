@@ -1,0 +1,70 @@
+{
+  "nav": {
+    "title": "Rastreador de Presupuesto",
+    "dashboard": "Inicio",
+    "list": "Lista",
+    "charts": "Gráficas"
+  },
+  "filters": {
+    "label": "Filtros",
+    "allYears": "Todos los años",
+    "allSectors": "Todos los sectores",
+    "currency": {
+      "crc": "₡ CRC",
+      "usd": "$ USD"
+    },
+    "reset": "Limpiar filtros"
+  },
+  "kpi": {
+    "totalBudgeted": "Presupuesto total",
+    "totalExecuted": "Ejecutado",
+    "activeSectors": "Sectores activos",
+    "unexecuted": "Sin ejecutar",
+    "ofTotal": "del total",
+    "belowTarget": "Por debajo de la meta"
+  },
+  "charts": {
+    "yearlySpend": "Gasto por año",
+    "sectorDistribution": "Distribución por sector",
+    "budgetVsExecuted": "Presupuestado vs ejecutado por año",
+    "executionTrend": "Tendencia de ejecución (%)",
+    "budgetBySector": "Distribución de presupuesto por sector",
+    "executionRateBySector": "Tasa de ejecución por sector",
+    "budgeted": "Presupuestado",
+    "executed": "Ejecutado",
+    "executionRate": "Tasa de ejecución"
+  },
+  "table": {
+    "title": "Ejecución por sector",
+    "detailTitle": "Detalle de presupuesto",
+    "records": "registros",
+    "sector": "Sector",
+    "year": "Año",
+    "budgeted": "Presupuesto",
+    "executed": "Ejecutado",
+    "executionPct": "% Ejecución",
+    "status": "Estado",
+    "noData": "No hay datos para los filtros seleccionados.",
+    "status_optimal": "Óptimo",
+    "status_at-risk": "En riesgo",
+    "status_low": "Bajo"
+  },
+  "loading": {
+    "budget": "Cargando datos de presupuesto...",
+    "records": "Cargando registros...",
+    "charts": "Cargando gráficas..."
+  },
+  "lang": {
+    "switch": "English"
+  },
+  "sectors": {
+    "education": "Educación",
+    "health": "Salud",
+    "infrastructure": "Infraestructura",
+    "security": "Seguridad",
+    "social": "Desarrollo social",
+    "environment": "Medio ambiente",
+    "science": "Ciencia y tecnología",
+    "culture": "Cultura y deporte"
+  }
+}

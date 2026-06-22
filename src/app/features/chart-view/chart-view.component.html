@@ -1,0 +1,39 @@
+<app-filter-bar />
+
+@if (vm$ | async; as vm) {
+  <div class="page">
+    <div class="charts-grid">
+
+      <div class="chart-card chart-card--wide">
+        <h3 class="chart-card__title">{{ 'charts.budgetVsExecuted' | translate }}</h3>
+        <div class="chart-card__body">
+          <app-chart-wrapper type="bar" [data]="vm.barData" [options]="groupedBarOptions" />
+        </div>
+      </div>
+
+      <div class="chart-card chart-card--wide">
+        <h3 class="chart-card__title">{{ 'charts.executionTrend' | translate }}</h3>
+        <div class="chart-card__body">
+          <app-chart-wrapper type="line" [data]="vm.lineData" [options]="lineOptions" />
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <h3 class="chart-card__title">{{ 'charts.budgetBySector' | translate }}</h3>
+        <div class="chart-card__body chart-card__body--tall">
+          <app-chart-wrapper type="doughnut" [data]="vm.pieData" [options]="pieOptions" />
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <h3 class="chart-card__title">{{ 'charts.executionRateBySector' | translate }}</h3>
+        <div class="chart-card__body chart-card__body--tall">
+          <app-chart-wrapper type="bar" [data]="vm.rateData" [options]="horizontalOptions" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+} @else {
+  <app-loading-spinner [message]="'loading.charts' | translate" />
+}

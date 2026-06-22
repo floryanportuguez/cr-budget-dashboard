@@ -1,0 +1,84 @@
+@use 'variables' as *;
+
+// ─── Box model reset ─────────────────────────────────────────────────────────
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// ─── Root & html ─────────────────────────────────────────────────────────────
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-base;
+  color: $gray-800;
+  background-color: $gray-50;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// ─── Typography ──────────────────────────────────────────────────────────────
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-medium;
+  line-height: $line-height-tight;
+  color: $gray-800;
+}
+
+h1 { font-size: $font-size-3xl; }
+h2 { font-size: $font-size-2xl; }
+h3 { font-size: $font-size-xl; }
+h4 { font-size: $font-size-lg; }
+h5 { font-size: $font-size-md; }
+h6 { font-size: $font-size-base; }
+
+p { line-height: $line-height-base; }
+
+a {
+  color: $color-brand-primary;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover { color: $purple-800; }
+}
+
+// ─── Lists ───────────────────────────────────────────────────────────────────
+ul, ol { list-style: none; }
+
+// ─── Media ───────────────────────────────────────────────────────────────────
+img, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+// ─── Form elements ───────────────────────────────────────────────────────────
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button { cursor: pointer; }
+
+// ─── Tables ──────────────────────────────────────────────────────────────────
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+// ─── Scrollbar ───────────────────────────────────────────────────────────────
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: $gray-200;
+  border-radius: $radius-full;
+  &:hover { background: $gray-400; }
+}

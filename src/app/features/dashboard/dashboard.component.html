@@ -1,0 +1,11 @@
+<app-filter-bar />
+
+@if (vm$ | async; as vm) {
+  <div class="page">
+    <app-kpi-grid [kpi]="vm.kpi" [currency]="vm.currency" />
+    <app-dashboard-charts [yearlyTotals]="vm.yearlyTotals" [sectors]="vm.sectors" />
+    <app-sector-table [sectors]="vm.sectors" [currency]="vm.currency" />
+  </div>
+} @else {
+  <app-loading-spinner [message]="'loading.budget' | translate" />
+}

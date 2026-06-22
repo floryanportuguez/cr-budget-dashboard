@@ -1,0 +1,16 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+:host { display: block; }
+
+.page {
+  padding: $page-padding-y $page-padding-x;
+}
+
+.charts-grid {
+  @include grid(2, $space-4);
+
+  @include respond-below(md) {
+    @include grid(1, $space-4);
+  }
+}

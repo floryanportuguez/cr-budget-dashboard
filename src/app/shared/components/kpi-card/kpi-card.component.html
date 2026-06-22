@@ -1,0 +1,14 @@
+<div class="kpi-card">
+  <p class="kpi-card__label">{{ label }}</p>
+  <p class="kpi-card__value">{{ value }}</p>
+  <p
+    *ngIf="subtitle"
+    class="kpi-card__sub"
+    [class.kpi-card__sub--success]="trend === 'up'"
+    [class.kpi-card__sub--danger]="trend === 'down'"
+  >
+    <span *ngIf="trend === 'up'">↑</span>
+    <span *ngIf="trend === 'down'">↓</span>
+    {{ subtitle }}
+  </p>
+</div>

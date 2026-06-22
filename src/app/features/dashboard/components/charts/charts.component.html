@@ -1,0 +1,15 @@
+<div class="charts-row">
+  <div class="chart-card">
+    <h3 class="chart-card__title">{{ 'charts.yearlySpend' | translate }}</h3>
+    <div class="chart-card__body">
+      <app-chart-wrapper type="bar" [data]="barData" [options]="barOptions" />
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <h3 class="chart-card__title">{{ 'charts.sectorDistribution' | translate }}</h3>
+    <div class="chart-card__body">
+      <app-chart-wrapper type="doughnut" [data]="pieData" [options]="pieOptions" />
+    </div>
+  </div>
+</div>
